@@ -1,4 +1,6 @@
 const User = require('../model/users');
+const jwt = require('jsonwebtoken');
+const secret = 'shivapandey';
 
 const getUsers = () => new Promise((resolve, reject) => {
     User.find({}).populate('posts','_id title').exec((err, data) => {
@@ -16,7 +18,13 @@ const addUser = (user) => new Promise((resolve, reject) => {
 const userLogin = (username, password) => new Promise((resolve, reject) => {
     User.findOne({"username": username}, (err, user) => {
         let valid = user.isValidPassword(password);
-        !valid && reject("Password Not Valid") || resolve(user);
+        let token = jwt.sign({id: user._id}, secret);
+        let userObj = {
+            _id: user._id,
+            name: user.name,
+            token: token
+        }
+        !valid && reject("Password Not Valid") || resolve(userObj);
     })
 })
 

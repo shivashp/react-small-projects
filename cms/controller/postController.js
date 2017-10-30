@@ -9,7 +9,7 @@ const getAllPost = () => new Promise((resolve, reject) => {
 });
 
 const getSinglePost = (id) => new Promise((resolve, reject) => {
-    Post.findOne(req.params.id, (err, post) => {
+    Post.findOne(id, (err, post) => {
         err && reject(err) || resolve(post);
     })
 });

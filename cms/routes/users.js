@@ -3,6 +3,7 @@ const userController = require('../controller/userController');
 const response = require('../utils');
 const User = require('../model/users');
 
+
 router.get('/', (req, res) => {
     userController.getUsers().then(users => {
         response.sendData(res, users);

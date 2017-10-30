@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const postController = require('../controller/postController');
 const response = require('../utils');
+const { authenticated } = require('../utils/helper'); 
 
-router.get('/', (req, res) => {
+router.get('/', authenticated, (req, res) => {
     postController.getAllPost().then(posts => {
         response.sendData(res, posts);
     }).catch(err => {
