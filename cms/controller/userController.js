@@ -1,7 +1,7 @@
 const User = require('../model/users');
 
 const getUsers = () => new Promise((resolve, reject) => {
-    User.find({}, (err, data) => {
+    User.find({}).populate('posts','_id title').exec((err, data) => {
         err && reject(err) || resolve(data);
     });
 })
@@ -20,6 +20,15 @@ const userLogin = (username, password) => new Promise((resolve, reject) => {
     })
 })
 
+const deleteUser = (id) => new Promise((resolve, reject) => {
+    User.findById(id, (err, user) => {
+        user.remove((err) => {
+            err && reject(err) || resolve('');
+        })
+    })
+});
+
+
 module.exports = {
-    getUsers, addUser, userLogin
+    getUsers, addUser, userLogin, deleteUser
 }

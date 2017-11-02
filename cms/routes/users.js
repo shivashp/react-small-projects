@@ -26,4 +26,12 @@ router.post('/login', (req, res) => {
        response.sendDataError(res, err);
    })
 })
+
+router.delete('/:id', (req, res) => {
+    userController.deleteUser(req.params.id).then(() => {
+        response.sendDataSuccess(res, 'User Deleted Successfully!', '');
+    }).catch(err => {
+        response.sendDBError(res, err);
+    })
+})
 module.exports = router;
