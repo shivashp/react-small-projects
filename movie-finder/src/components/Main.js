@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import SideMenu from './SideMenu';
 import Dashboard from './Dashboard';
+import FullCategoryPage from './FullCategoryPage';
 
 const { Header, Sider, Content } = Layout;
 
@@ -36,8 +37,8 @@ class Main extends Component {
                     <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: '90vh', overflow: 'scroll' }}>
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
-                            <Route path={`/popular`} component={Popular} />
                             <Route path={`/upcoming`} component={Upcoming} />
+                            <Route path={`/popular`} component={FullCategoryPage} />
                             <Route path={`/top-rated`} component={TopRated} />
                         </Switch>                
                     </Content>
@@ -48,9 +49,6 @@ class Main extends Component {
     }
 }
 
-const Popular = () => (
-    <h2>This is popular movie list</h2>
-)
 const Upcoming = () => (
     <h2>This is upcoming movie list</h2>
 )
