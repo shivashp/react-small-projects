@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Icon, Rate } from 'antd';
-import { Link, Redirect } from 'react-router-dom';
-import * as movies from './movies.json';
+import { Row, Col, Card, Icon, Rate, Spin } from 'antd';
 import Slider from 'react-slick';
 import axios from 'axios';
 
+// TODO: add loader
+// TODO: cursor pointer
+// TODO: Responsive Carousel
 
 class MovieSection extends Component {
     constructor() {
@@ -64,11 +65,11 @@ class MovieSection extends Component {
                     </Row>
                 </div>
                 {
-                    this.state.movies.length > 0 && 
+                    this.state.movies.length > 0 ?
                     <Slider {...settings} className="section-body">
                     {
                         this.state.movies.map(movie => (
-                            <Card key={movie.id} style={{width: 250, marginRight: 20, marginBottom: 50}} bodyStyle={{ padding: 0 }}>
+                            <Card key={movie.id} className="animated fadeIn" style={{width: 250, marginRight: 20, marginBottom: 50}} bodyStyle={{ padding: 0 }}>
                                 <div className="mycard-image">
                                     <img alt="example" width="100%" src={movie.backdrop_path} />
                                     <div className="mycard-title">
@@ -79,13 +80,19 @@ class MovieSection extends Component {
                             </Card>   
                         ))
                     }
-                    </Slider>
+                    </Slider> : <Loader />
                 }
                 
             </div>
         );
     }
 }
+
+const Loader = () => (
+    <div className="loader-container">
+        <Spin />
+    </div>
+)
 
 const NextArrow = (props) => (
     <div className="arrow arrow-right" onClick={props.onClick}>

@@ -1,5 +1,10 @@
 [
     {
+        "id": 0,
+        "title": "In Theaters",
+        "api": "now_playing"
+    },
+    {
         "id": 1,
         "title": "Upcomming Movies",
         "api": "upcoming"

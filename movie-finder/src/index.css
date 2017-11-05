@@ -10,6 +10,10 @@ body {
 a, a:visited {
   text-decoration: none !important;
 }
+#main-app {
+  height: 100vh; 
+  overflow: hidden;
+}
 #main-app .trigger {
   font-size: 18px;
   line-height: 64px;
@@ -43,6 +47,11 @@ a, a:visited {
   line-height: 50px;
   height: 50px;
 }
+.loader-container {
+  text-align: center;
+  margin:50px;
+}
+
 .section-title {
   border-bottom: 1px solid #e9e9e9;
   padding-bottom:10px;

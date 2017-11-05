@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "title": "Dashboard",
+        "icon": "home",
+        "path": "/"
+    },
+    {
+        "id": 1,
+        "title": "In Theaters",
+        "icon": "video-camera",
+        "path": "/now_playing"
+    },
+    {
+        "id": 2,
+        "title": "Popular Movies",
+        "icon": "user",
+        "path": "/popular"
+    },
+    {
+        "id": 3,
+        "title": "Top Rated Movies",
+        "icon": "upload",
+        "path": "/top-rated"
+    },
+    {
+        "id": 4,
+        "title": "Upcoming Movies",
+        "icon": "video-camera",
+        "path": "/upcoming"
+    }
+]

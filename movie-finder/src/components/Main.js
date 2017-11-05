@@ -33,11 +33,11 @@ class Main extends Component {
                         onClick={this.toggle}
                     />
                     </Header>
-                    <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: '90vh' }}>
+                    <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', height: '90vh', overflow: 'scroll' }}>
                         <Switch>
                             <Route exact path="/" component={Dashboard} />
                             <Route path={`/popular`} component={Popular} />
-                            <Route path={`/latest`} component={Latest} />
+                            <Route path={`/upcoming`} component={Upcoming} />
                             <Route path={`/top-rated`} component={TopRated} />
                         </Switch>                
                     </Content>
@@ -51,8 +51,8 @@ class Main extends Component {
 const Popular = () => (
     <h2>This is popular movie list</h2>
 )
-const Latest = () => (
-    <h2>This is latest movie list</h2>
+const Upcoming = () => (
+    <h2>This is upcoming movie list</h2>
 )
 const TopRated =() => (
     <h2>This is top rated movie list</h2>
