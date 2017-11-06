@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Upcomming Movies",
+        "api": "upcoming"
+    },
+    {
+        "id": 2,
+        "title": "Popular",
+        "api": "popular"
+    },
+    {
+        "id": 3,
+        "title": "Top Rated",
+        "api": "top_rated"
+    }
+]

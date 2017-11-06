@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Icon } from 'antd';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Link, Route
+    Switch, Route
 } from 'react-router-dom';
 import SideMenu from './SideMenu';
 import Dashboard from './Dashboard';
