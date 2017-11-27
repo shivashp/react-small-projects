@@ -30,7 +30,7 @@ class SideMenu extends Component {
     //     <Route path={menu.path} component={menu.title.trim()} />
     // }
     render() {
-        let activeItem = this.props.activeItem?[this.props.activeItem]:[];
+        let activeItem = this.props.activeItem?[this.props.activeItem]:["/"];
         return (
             <div>
                 <Link to="/">

@@ -98,11 +98,35 @@ a, a:visited {
   z-index: 1;
 }
 .arrow-right {
-  right: 10px;
+  right: 18px;
 }
 .arrow-left {
   left:10px;
 }
 .slick-list {
   max-height: 350px;
+}
+#single-movie img{
+  max-width: 100%;
+}
+#single-movie .poster {
+  width:95%;
+}
+.small-text {
+  font-size: 0.9em;
+}
+.movie-meta {
+  margin-top:10px;
+}
+.movie-meta>span {
+  font-size:0.9em;
+  padding-right: 8px;
+  border-right: 1px solid #ccc;
+  margin-right: 8px;
+}
+.movie-meta>span:last-child {
+  border:none;
+}
+.section-body p {
+  text-align: justify;
 }

@@ -6,12 +6,13 @@ import {
 import SideMenu from './SideMenu';
 import Dashboard from './Dashboard';
 import FullCategoryPage from './FullCategoryPage';
+import SingleMovie from './SingleMovie';
 
 const { Header, Sider, Content } = Layout;
 
 class Main extends Component {
     state = {
-        collapsed: false,
+        collapsed: true,
       };
       toggle = () => {
         this.setState({
@@ -40,6 +41,7 @@ class Main extends Component {
                             <Route path={`/upcoming`} component={Upcoming} />
                             <Route path={`/popular`} component={FullCategoryPage} />
                             <Route path={`/top-rated`} component={TopRated} />
+                            <Route path={'/single-movie/:id'} component={SingleMovie} />
                         </Switch>                
                     </Content>
                 </Layout>
@@ -49,11 +51,15 @@ class Main extends Component {
     }
 }
 
-const Upcoming = () => (
-    <h2>This is upcoming movie list</h2>
-)
+
+
 const TopRated =() => (
     <h2>This is top rated movie list</h2>
 )
+
+const Upcoming = () => (
+    <h2>Upcoming movie</h2>
+)
+
 
 export default Main;

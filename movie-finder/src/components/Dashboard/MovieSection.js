@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Icon, Rate, Spin } from 'antd';
+import { Row, Col, Card, Icon, Rate } from 'antd';
 import Slider from 'react-slick';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { Loader } from '../utils';
 
-// TODO: add loader
 // TODO: cursor pointer
 // TODO: Responsive Carousel
 
@@ -29,7 +30,7 @@ class MovieSection extends Component {
             let movies = response.data.results.map(movie => {
                 return {
                     ...movie, 
-                    backdrop_path: `http://image.tmdb.org/t/p/w185${movie.poster_path}`,
+                    backdrop_path: `http://image.tmdb.org/t/p/w342${movie.poster_path}`,
                     vote_average: (movie.vote_average/10) * 5
                 }
             });    
@@ -41,7 +42,7 @@ class MovieSection extends Component {
         var settings = {
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 2,
             arrows: true,
             nextArrow: <NextArrow />,
@@ -69,15 +70,17 @@ class MovieSection extends Component {
                     <Slider {...settings} className="section-body">
                     {
                         this.state.movies.map(movie => (
-                            <Card key={movie.id} className="animated fadeIn" style={{width: 250, marginRight: 20, marginBottom: 50}} bodyStyle={{ padding: 0 }}>
-                                <div className="mycard-image">
-                                    <img alt="example" width="100%" src={movie.backdrop_path} />
-                                    <div className="mycard-title">
-                                        <h3>{movie.original_title}</h3>
-                                        <Rate disabled allowHalf defaultValue={movie.vote_average} />
+                            <Link to={`/single-movie/${movie.id}`} key={movie.id}>
+                                <Card className="animated fadeIn" style={{width: 250, marginRight: 20, marginBottom: 50}} bodyStyle={{ padding: 0 }}>
+                                    <div className="mycard-image">
+                                        <img alt="example" width="100%" src={movie.backdrop_path} />
+                                        <div className="mycard-title">
+                                            <h3>{movie.original_title}</h3>
+                                            <Rate disabled allowHalf defaultValue={movie.vote_average} />
+                                        </div>
                                     </div>
-                                </div>
-                            </Card>   
+                                </Card>
+                            </Link>
                         ))
                     }
                     </Slider> : <Loader />
@@ -88,11 +91,6 @@ class MovieSection extends Component {
     }
 }
 
-const Loader = () => (
-    <div className="loader-container">
-        <Spin />
-    </div>
-)
 
 const NextArrow = (props) => (
     <div className="arrow arrow-right" onClick={props.onClick}>
